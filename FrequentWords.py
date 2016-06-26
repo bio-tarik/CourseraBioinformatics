@@ -19,9 +19,10 @@ def frequent_words(text, k):
 
     return frequent_patterns
 
-dnaSequence = open("Files/FrequentWords.txt", "r")
+if __name__ == "__main__":
+    dnaSequence = open("Files/FrequentWords.txt", "r")
 
-result = frequent_words(dnaSequence.readline(), int(dnaSequence.readline()))
+    result = frequent_words(dnaSequence.readline(), int(dnaSequence.readline()))
 
-print(result)
-dnaSequence.close()
+    print(result)
+    dnaSequence.close()

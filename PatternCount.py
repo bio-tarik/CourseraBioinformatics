@@ -6,9 +6,10 @@ def pattern_count(text, pattern):
 
     return count
 
-dnaSequence = open('Files/PatternCount.txt', 'r')
+if __name__ == "__main__":
+    dnaSequence = open('Files/PatternCount.txt', 'r')
 
-result = pattern_count(dnaSequence.readline(), dnaSequence.readline())
-print(result)
+    result = pattern_count(dnaSequence.readline(), dnaSequence.readline())
+    print(result)
 
-dnaSequence.close()
+    dnaSequence.close()
