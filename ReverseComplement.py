@@ -9,9 +9,10 @@ def return_complement(source_string):
 
     return complementary_string
 
-file = open('files/ReverseComplement.txt', 'r')
+if __name__ == "__main__":
+    file = open('files/ReverseComplement.txt', 'r')
 
-dnaString = file.readline()
+    dnaString = file.readline()
 
-print(return_complement(dnaString))
-file.close()
+    print(return_complement(dnaString))
+    file.close()
