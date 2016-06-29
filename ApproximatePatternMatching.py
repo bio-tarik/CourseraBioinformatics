@@ -3,7 +3,7 @@ import HammingDistance as HammingDistance
 
 def approximate_pattern_matching(pattern, genome, d):
     indices = []
-    stretch = ''
+
     for i in range(0, len(genome) - (len(pattern) - 1)):
         stretch = genome[i: i+len(pattern)]
         if HammingDistance.hamming_distance(pattern, stretch) <= d:
