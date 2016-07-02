@@ -21,7 +21,7 @@ def pattern_to_number(pattern):
 def number_to_pattern(index, k):
     if k == 1:
         return number_to_symbol(index)
-    prefix_index = int(index/4)
+    prefix_index = index//4
     r = index % 4
     symbol = number_to_symbol(r)
     prefix_pattern = number_to_pattern(prefix_index, k-1)
@@ -42,5 +42,6 @@ def computing_frequencies(text, k):
 
 if __name__ == "__main__":
     file = open('Files\FrequencyArray.txt', 'r')
-    print(computing_frequencies(file.readline().strip(), int(file.readline())))
+    response = computing_frequencies(file.readline().strip(), int(file.readline()))
+    print(' '.join(str(x) for x in response))
     file.close()
