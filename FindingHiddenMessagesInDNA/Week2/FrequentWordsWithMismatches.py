@@ -1,35 +1,28 @@
 import FindingHiddenMessagesInDNA.Week2.Neighbors as Neighbors
 import FindingHiddenMessagesInDNA.Week1.ReverseComplement as ReverseComplement
-import FindingHiddenMessagesInDNA.Week2.FrequencyArray as FrequencyArray
 import FindingHiddenMessagesInDNA.Week2.ApproximatePatternCount as ApproximatePatternCount
 
 
 def frequent_words_with_mismatches(text, k, d):
     frequent_patterns = []
-    close = {}
     frequency_array = {}
+    neighborhood = []
 
-    for i in range(0, ((k ** 4) - 1)):
-        close[i] = 0
-        frequency_array[i] = 0
+    for i in range(0, (len(text) - (k - 1))):
+        neighborhood += Neighbors.neighbors(text[i:i + k], d)
 
-    for i in range(0, (len(text) - k)):
-        neighborhood = Neighbors.neighbors(text[i:i + k], d)
-        for string in neighborhood:
-            index = FrequencyArray.pattern_to_number(string)
-            close[index] = 1
-    for i in range(0, ((k ** 4) - 1)):
-        if close[i] == 1:
-            pattern = FrequencyArray.number_to_pattern(i, k)
-            frequency_array[i] = ApproximatePatternCount.approximate_pattern_count(pattern, text, d) + ApproximatePatternCount.approximate_pattern_count(pattern, ReverseComplement.return_complement(text), d)
+    neighborhood += [ReverseComplement.return_complement(p) for p in neighborhood]
 
-    print(frequency_array.values())
+    neighborhood = list(set(neighborhood))
+
+    for i in neighborhood:
+        frequency_array[i] = ApproximatePatternCount.approximate_pattern_count(i, text, d) + ApproximatePatternCount.approximate_pattern_count(i, ReverseComplement.return_complement(text), d)
+
     max_count = max(frequency_array.values())
 
-    for i in range(0, ((k ** 4) - 1)):
-        if frequency_array[i] == max_count:
-            pattern = FrequencyArray.number_to_pattern(i, k)
-            frequent_patterns.append(pattern)
+    for k, v in frequency_array.items():
+        if v == max_count:
+            frequent_patterns.append(k)
 
     return frequent_patterns
 

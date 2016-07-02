@@ -11,12 +11,13 @@ def first_symbol(pattern):
 
 def neighbors(pattern, d):
     nucleotides = ['A', 'C', 'G', 'T']
+    neighborhood = []
     if d == 0:
-        return pattern
+        neighborhood.append(pattern)
+        return neighborhood
     if len(pattern) == 1:
         return nucleotides
 
-    neighborhood = []
     suffix_neighbors = neighbors(suffix(pattern), d)
 
     for text in suffix_neighbors:
