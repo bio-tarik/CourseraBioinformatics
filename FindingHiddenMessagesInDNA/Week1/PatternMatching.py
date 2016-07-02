@@ -7,6 +7,6 @@ def pattern_matching(pattern, genome):
 
     return count
 
-file = open('files/PatternMatching.txt', 'r')
+file = open('../files/PatternMatching.txt', 'r')
 print(pattern_matching(file.readline().strip(), file.readline().strip()))
 file.close()

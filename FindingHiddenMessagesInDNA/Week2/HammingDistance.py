@@ -8,6 +8,6 @@ def hamming_distance(string1, string2):
     return distance
 
 if __name__ == "__main__":
-    file = open('Files\HammingDistance.txt', 'r')
+    file = open('..\Files\HammingDistance.txt', 'r')
     print(hamming_distance(file.readline().strip(), file.readline().strip()))
     file.close()

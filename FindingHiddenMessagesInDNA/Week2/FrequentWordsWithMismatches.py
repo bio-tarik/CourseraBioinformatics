@@ -1,7 +1,7 @@
-import ApproximatePatternCount
-import Neighbors
-import FrequencyArray
-import ReverseComplement
+import FindingHiddenMessagesInDNA.Week2.Neighbors as Neighbors
+import FindingHiddenMessagesInDNA.Week1.ReverseComplement as ReverseComplement
+import FindingHiddenMessagesInDNA.Week2.FrequencyArray as FrequencyArray
+import FindingHiddenMessagesInDNA.Week2.ApproximatePatternCount as ApproximatePatternCount
 
 
 def frequent_words_with_mismatches(text, k, d):
@@ -14,7 +14,7 @@ def frequent_words_with_mismatches(text, k, d):
         frequency_array[i] = 0
 
     for i in range(0, (len(text) - k)):
-        neighborhood = Neighbors.neighbors(text[i:i+k], d)
+        neighborhood = Neighbors.neighbors(text[i:i + k], d)
         for string in neighborhood:
             index = FrequencyArray.pattern_to_number(string)
             close[index] = 1
@@ -34,7 +34,7 @@ def frequent_words_with_mismatches(text, k, d):
     return frequent_patterns
 
 if __name__ == "__main__":
-    file = open('Files/FrequentWordsWithMismatches.txt', 'r')
+    file = open('../Files/FrequentWordsWithMismatches.txt', 'r')
     print(frequent_words_with_mismatches(file.readline().strip(), int(file.readline().strip()), int(file.readline().strip())))
     file.close()
 

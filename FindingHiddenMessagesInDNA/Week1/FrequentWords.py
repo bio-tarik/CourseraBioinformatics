@@ -1,4 +1,4 @@
-import PatternCount
+import FindingHiddenMessagesInDNA.Week1.PatternCount as PatternCount
 
 
 def frequent_words(text, k):
@@ -20,7 +20,7 @@ def frequent_words(text, k):
     return frequent_patterns
 
 if __name__ == "__main__":
-    dnaSequence = open("Files/FrequentWords.txt", "r")
+    dnaSequence = open("../files/FrequentWords.txt", "r")
 
     result = frequent_words(dnaSequence.readline(), int(dnaSequence.readline()))
 

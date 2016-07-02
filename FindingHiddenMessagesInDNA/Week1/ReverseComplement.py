@@ -10,7 +10,7 @@ def return_complement(source_string):
     return complementary_string
 
 if __name__ == "__main__":
-    file = open('files/ReverseComplement.txt', 'r')
+    file = open('../files/ReverseComplement.txt', 'r')
 
     dnaString = file.readline()
 

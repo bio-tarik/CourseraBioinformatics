@@ -41,7 +41,7 @@ def computing_frequencies(text, k):
     return frequency
 
 if __name__ == "__main__":
-    file = open('Files\FrequencyArray.txt', 'r')
+    file = open('..\Files\FrequencyArray.txt', 'r')
     response = computing_frequencies(file.readline().strip(), int(file.readline()))
     print(' '.join(str(x) for x in response))
     file.close()

@@ -1,8 +1,8 @@
-import ReverseComplement as reverseComplement
+import FindingHiddenMessagesInDNA.Week1.ReverseComplement as ReverseComplement
 
 
 def skew(string, positive_skew):
-    negative_skew = reverseComplement.return_complement(positive_skew)
+    negative_skew = ReverseComplement.return_complement(positive_skew)
     skew_dict = {0: 0}
 
     for i in range(0, len(string)):
@@ -18,7 +18,7 @@ def skew(string, positive_skew):
     return ' '.join(str(key) for min_value in (min(skew_dict.values()),) for key in skew_dict if skew_dict[key]==min_value)
 
 if __name__ == "__main__":
-    file = open('Files\MinimumSkew.txt', 'r')
+    file = open('..\Files\MinimumSkew.txt', 'r')
 
     genome = file.readline().strip()
 

@@ -1,4 +1,4 @@
-import HammingDistance as HamDis
+import FindingHiddenMessagesInDNA.Week2.HammingDistance as HamDis
 
 
 def suffix(pattern):
@@ -28,7 +28,7 @@ def neighbors(pattern, d):
     return neighborhood
 
 if __name__ == '__main__':
-    file = open('Files/Neighbors.txt', 'r')
+    file = open('../Files/Neighbors.txt', 'r')
     response = neighbors(file.readline().strip(), int(file.readline()))
     print(' '.join(response))
     file.close()

@@ -1,4 +1,4 @@
-import HammingDistance
+import FindingHiddenMessagesInDNA.Week2.HammingDistance as HammingDistance
 
 
 def approximate_pattern_count(pattern, text, d):
@@ -11,6 +11,6 @@ def approximate_pattern_count(pattern, text, d):
     return count
 
 if __name__ == "__main__":
-    file = open("Files/ApproximatePatternCount.txt", "r")
+    file = open("../Files/ApproximatePatternCount.txt", "r")
     print(approximate_pattern_count(file.readline().strip(), file.readline().strip(), int(file.readline().strip())))
     file.close()
